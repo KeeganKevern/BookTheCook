@@ -1,11 +1,11 @@
 <template>
   <div>
-    <nav>
-      <RouterLink to="/">Go to Home</RouterLink>
-      <RouterLink to="/about">Go to About</RouterLink>
-    </nav>
-
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+    <NavFooter />
   </div>
 </template>
+<script setup lang="ts">
+import NavFooter from "@/components/layout/NavFooter.vue";
+</script>
