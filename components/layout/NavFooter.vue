@@ -14,10 +14,26 @@
           ></span>
         </label>
       </li>
-      <li><NuxtLink to="/MeetTheChef">Meet the Chef</NuxtLink></li>
-      <li><NuxtLink to="/">Home</NuxtLink></li>
-      <li><NuxtLink to="/Booking">How it works</NuxtLink></li>
-      <li><NuxtLink to="/UserProfile">How it works</NuxtLink></li>
+      <li>
+        <NuxtLink to="/MeetTheChef">
+          <Icon name="mdi:chef-hat" size="24" />
+        </NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/">
+          <Icon name="dashicons:admin-home" size="24" />
+        </NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/Booking">
+          <Icon name="mdi:calendar-month-outline" size="24" />
+        </NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/UserProfile">
+          <Icon name="ic:round-person" size="24" />
+        </NuxtLink>
+      </li>
     </ul>
   </nav>
 </template>
