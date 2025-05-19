@@ -12,4 +12,9 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxt/test-utils/module",
   ],
+
+  tailwindcss: {
+    exposeConfig: true,
+    viewer: true,
+  },
 });
