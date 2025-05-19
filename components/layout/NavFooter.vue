@@ -14,26 +14,20 @@
           ></span>
         </label>
       </li>
-      <li>
-        <NuxtLink to="/MeetTheChef">
-          <Icon name="mdi:chef-hat" size="24" />
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/">
-          <Icon name="dashicons:admin-home" size="24" />
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/Booking">
-          <Icon name="mdi:calendar-month-outline" size="24" />
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/UserProfile">
-          <Icon name="ic:round-person" size="24" />
-        </NuxtLink>
+      <li v-for="nav in navFooterData">
+        <NavButton :navRoute="nav.navRoute" :iconName="nav.iconName" />
       </li>
     </ul>
   </nav>
 </template>
+
+<script setup lang="ts">
+import NavButton from "@/components/universal/NavButton.vue";
+
+const navFooterData = [
+  { navRoute: "/MeetTheChef", iconName: "icon-park-solid:chef-hat-one" },
+  { navRoute: "/", iconName: "dashicons:admin-home" },
+  { navRoute: "/Booking", iconName: "mdi:calendar-month-outline" },
+  { navRoute: "/UserProfile", iconName: "mdi:account" },
+];
+</script>
