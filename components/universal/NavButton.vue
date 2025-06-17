@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="props.navRoute">
-    <Icon :name="props.iconName" :size="props.size" />
+    <Icon class="mt-2" :name="props.iconName" :size="props.size" />
   </NuxtLink>
 </template>
 
