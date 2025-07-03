@@ -1,6 +1,6 @@
 <template></template>
 <script setup>
 definePageMeta({
-  headerTitle: "Meet the Chef",
+  headerTitle: "Meet The Chef",
 });
 </script>

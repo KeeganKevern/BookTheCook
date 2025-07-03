@@ -7,5 +7,5 @@
 </template>
 <script setup>
 import PageHeader from "@/components/universal/PageHeader.vue";
-import NavFooter from "@/components/layout/NavFooter.vue";
+import NavFooter from "~/components/layout/footer/NavFooter.vue";
 </script>
