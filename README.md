@@ -1,6 +1,14 @@
-# Nuxt Minimal Starter
+## Project Overview
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+My client has given me permission to share the codebase of this website as part of my personal portfolio of work.
+The client requires a website to raise brand awareness, and to allow users to book his services.
+
+## Tools and dependancies
+
+Project Framework - Nuxt 3
+CSS Framework - TailwindCSS
+
+User Authentication - Firebase
 
 ## Setup
 
