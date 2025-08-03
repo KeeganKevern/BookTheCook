@@ -51,7 +51,7 @@
     <p class="bg-green-200 h-40 overflow-scroll">{{ logInStatus }}</p>
   </section>
 </template>
-<script setup>
+<script setup lang="ts">
 definePageMeta({
   headerTitle: "The Customer Zone",
 });
@@ -70,32 +70,28 @@ const authStore = useAuthStore();
 const handleLogin = async () => {
   try {
     await authStore.login(email.value, password.value);
-    // await authStore.login;
-  } catch (err) {
-    console.error(err.message);
-  }
-  logInStatus.value = authStore.user;
 
-  if (!authStore.user) {
+    if (!authStore.user) {
+      logInStatus.value = "error";
+    } else {
+      logInStatus.value = authStore.user;
+    }
+  } catch (err: any) {
+    console.error(err.message);
     logInStatus.value = "error";
-  } else {
-    logInStatus.value = authStore.user;
   }
 };
 
 const handleSignUp = async () => {
   try {
     await authStore.signUp(signUpEmail.value, signUpPassword.value);
-    // await authStore.login;
-  } catch (err) {
+    if (!authStore.user) {
+      logInStatus.value = "error";
+    } else {
+      logInStatus.value = authStore.user;
+    }
+  } catch (err: any) {
     console.error(err.message);
-  }
-  logInStatus.value = authStore.user;
-
-  if (!authStore.user) {
-    logInStatus.value = "error";
-  } else {
-    logInStatus.value = authStore.user;
   }
 };
 </script>

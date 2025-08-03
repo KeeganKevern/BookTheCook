@@ -10,7 +10,7 @@ const auth = getAuth();
 
 export const useAuthStore = defineStore("auth", () => {
   const user = ref(null);
-  const error = (ref < string) | (null > null);
+  const error = ref(null);
 
   const handleAuthentication = async (authFn, email, password) => {
     try {
