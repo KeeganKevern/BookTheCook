@@ -58,7 +58,7 @@ const steps = [
   },
   {
     title: "Plan your menu",
-    description: "We'll discuss your tastes and preferences and design a menu entirely around you — from canapés to dessert.",
+    description: "We'll discuss your tastes, preferences, and available equipment. Then we design a menu entirely around you.",
   },
   {
     title: "Your chef arrives",
@@ -66,22 +66,22 @@ const steps = [
   },
   {
     title: "Sit back and enjoy",
-    description: "Relax with your guests. Your chef handles all the cooking and leaves your kitchen spotless before they go.",
+    description: "Relax with your dinner guest(s). Your chef handles all the cooking and leaves your kitchen spotless before they go.",
   },
 ];
 
 const faqs = [
   {
     question: "What areas do you cover?",
-    answer: "We currently cover [your area]. Get in touch if you're unsure — we're often flexible.",
+    answer: "We cover most of England. Get in touch if you're unsure, we're flexible.",
   },
   {
     question: "How far in advance do I need to book?",
-    answer: "We recommend at least one week's notice to allow time for menu planning and sourcing ingredients, though we'll always try to accommodate last-minute requests.",
+    answer: "We recommend at least three week's notice to allow time for menu planning and sourcing ingredients, though we'll always try to accommodate last-minute requests.",
   },
   {
     question: "Do you cater for dietary requirements?",
-    answer: "Absolutely. Whether it's vegan, gluten-free, allergies, or personal preferences — just let us know and the menu will be designed around you.",
+    answer: "Absolutely. Whether it's vegan, gluten-free, allergies, or personal preferences.",
   },
   {
     question: "What's included in the price?",
@@ -89,7 +89,7 @@ const faqs = [
   },
   {
     question: "Do I need any special equipment?",
-    answer: "No — your chef brings everything required. A standard home kitchen is all that's needed.",
+    answer: "No - your chef brings everything required. A standard home kitchen is all that's needed.",
   },
 ];
 </script>
