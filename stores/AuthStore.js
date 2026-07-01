@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 
 const firebaseErrorMessages = {
@@ -53,5 +54,19 @@ export const useAuthStore = defineStore("auth", () => {
     user.value = null;
   };
 
-  return { user, error, loading, login, signUp, logout };
+  const resetPassword = async (email) => {
+    loading.value = true;
+    error.value = null;
+    try {
+      await sendPasswordResetEmail(getAuth(), email);
+      return true;
+    } catch (err) {
+      error.value = firebaseErrorMessages[err.code] || "Could not send reset email.";
+      return false;
+    } finally {
+      loading.value = false;
+    }
+  };
+
+  return { user, error, loading, login, signUp, logout, resetPassword };
 });
