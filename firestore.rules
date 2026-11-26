@@ -1,0 +1,36 @@
+rules_version = '2';
+
+// Firestore rules for project bookthecook-87067.
+// Replace CHEF_UID_HERE with the chef's Firebase UID (same value as NUXT_PUBLIC_CHEF_UID),
+// then deploy: Firebase console > Firestore > Rules (paste), or `firebase deploy --only firestore:rules`.
+//
+// Both website forms save through the server route (server/api/enquiry.post.ts), which uses the
+// admin SDK and is not bound by these rules. So browsers never write submissions directly.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isChef() {
+      return request.auth != null && request.auth.uid == 'Hk8m4r2yHWVaTNkmKsy3SjG0NyD2';
+    }
+
+    // Booking requests and contact messages. The chef can read them, change the status, and delete them.
+    match /enquiries/{id} {
+      allow read, delete: if isChef();
+      allow update: if isChef()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status'])
+        && request.resource.data.status in ['New', 'Quoted', 'Confirmed', 'Declined'];
+      allow create: if false;
+    }
+
+    // Old contact messages saved before the server route existed: chef can read and delete only.
+    match /contacts/{id} {
+      allow read, delete: if isChef();
+      allow create, update: if false;
+    }
+
+    // Everything else is closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

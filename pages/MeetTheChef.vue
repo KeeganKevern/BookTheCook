@@ -3,11 +3,15 @@
 
     <!-- Bio -->
     <section class="flex flex-col items-center text-center gap-4">
-   <img
-  src="/chef-kevern.png"
-  alt="Chef Kevern"
-  class="w-32 h-32 rounded-full object-cover"
-/>
+      <!-- Placeholder until the chef's photo is supplied: add public/chef-kevern.png and swap back to
+           <img src="/chef-kevern.png" alt="Chef Kevern" class="w-32 h-32 rounded-full object-cover" /> -->
+      <div
+        class="w-32 h-32 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center"
+        role="img"
+        aria-label="Chef Kevern"
+      >
+        <Icon name="icon-park-solid:chef-hat-one" size="56" />
+      </div>
 
       <div class="space-y-3">
         <h2 class="text-2xl font-bold">Chef Kevern</h2>

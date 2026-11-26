@@ -13,5 +13,11 @@
 </template>
 
 <script setup lang="ts">
+// Catch-all route: any address that doesn't match a page lands here.
 definePageMeta({ headerTitle: "Not Found" });
+
+// Send a real 404 status on server render so search engines don't index missing pages.
+if (import.meta.server) {
+  setResponseStatus(useRequestEvent()!, 404, "Page Not Found");
+}
 </script>
