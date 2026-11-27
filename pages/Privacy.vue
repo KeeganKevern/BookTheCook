@@ -3,7 +3,7 @@
 
     <section class="space-y-2">
       <h2 class="text-2xl font-bold text-black dark:text-white">Privacy notice</h2>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Last updated <time datetime="2026-11-18">18 November 2026</time></p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Last updated <time datetime="2026-11-26">26 November 2026</time></p>
       <p>
         This notice explains what happens to the details you give us when you send a booking request
         or a message through this website.
@@ -63,7 +63,7 @@
     <section class="space-y-2">
       <h3 :class="h3">How long we keep it</h3>
       <p>
-        We keep booking requests and messages for 12 months after we were last in touch, then delete them.
+        We keep booking requests and messages for 12 months after you sent them, then delete them.
         If you go on to book, we keep the details needed for our business and tax records for as long as the
         law requires.
       </p>
