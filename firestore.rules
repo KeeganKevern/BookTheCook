@@ -22,13 +22,7 @@ service cloud.firestore {
       allow create: if false;
     }
 
-    // Old contact messages saved before the server route existed: chef can read and delete only.
-    match /contacts/{id} {
-      allow read, delete: if isChef();
-      allow create, update: if false;
-    }
-
-    // Everything else is closed.
+    // Everything else is closed, including the old `contacts` collection (empty; enquiries replaced it).
     match /{document=**} {
       allow read, write: if false;
     }
