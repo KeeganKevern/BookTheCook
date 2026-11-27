@@ -1,26 +1,26 @@
 <template>
   <header class="fixed top-8 z-10 w-11/12 mx-auto">
     <div class="flex p-4 justify-between items-center rounded bg-white dark:bg-black text-black dark:text-white border border-gray-200 dark:border-gray-800">
-      <div class="relative" ref="menuRef">
+      <!-- Chef menu: only shown when signed in. Customers have no accounts. -->
+      <div v-if="authStore.user" class="relative" ref="menuRef">
         <TheButton @click="menuOpen = !menuOpen" />
 
-        <!-- User menu dropdown -->
         <div
           v-if="menuOpen"
           class="absolute left-0 top-10 w-52 bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded shadow-lg py-2 z-20"
         >
-          <div v-if="authStore.user" class="px-4 py-2 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-800 truncate">
+          <div class="px-4 py-2 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-800 truncate">
             {{ authStore.user.email }}
           </div>
           <NuxtLink
-            to="/UserProfile"
+            v-if="authStore.isChef"
+            to="/BackOfHouse"
             class="block px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-900"
             @click="menuOpen = false"
           >
-            My Account
+            Back of House
           </NuxtLink>
           <button
-            v-if="authStore.user"
             class="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-900"
             @click="handleLogout"
           >
@@ -28,6 +28,8 @@
           </button>
         </div>
       </div>
+      <!-- Keeps the title centred when the menu is hidden -->
+      <div v-else class="w-6" aria-hidden="true"></div>
 
       <h1>{{ headerTitle }}</h1>
 

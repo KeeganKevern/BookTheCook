@@ -4,11 +4,17 @@
     <section class="space-y-2">
       <h2 class="text-2xl font-bold">Get in touch</h2>
       <p class="text-gray-600 dark:text-gray-400">
-        Have a question or ready to book? Send a message and we'll get back to you within 24 hours.
+        Have a question? Send a message and we'll get back to you within 48 hours.
+        Ready to book? Use the <NuxtLink to="/Booking" class="underline">booking request form</NuxtLink>.
       </p>
     </section>
 
     <form class="space-y-4" @submit.prevent="handleSubmit">
+      <!-- Honeypot: hidden from people, filled in by bots -->
+      <div class="hidden" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" v-model="form.website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
       <div class="space-y-1">
         <label class="text-sm font-medium" for="name">Name</label>
         <input
@@ -43,6 +49,10 @@
         />
       </div>
 
+      <p class="text-xs text-gray-500 dark:text-gray-400">
+        We only use your details to reply. See the <NuxtLink to="/Privacy" class="underline">privacy notice</NuxtLink>.
+      </p>
+
       <p v-if="error" class="text-red-600 text-sm">{{ error }}</p>
       <p v-if="submitted" class="text-green-600 text-sm">Message sent! We'll be in touch soon.</p>
 
@@ -59,11 +69,9 @@
 </template>
 
 <script setup lang="ts">
-import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
-
 definePageMeta({ headerTitle: "Get in Touch" });
 
-const form = reactive({ name: "", email: "", message: "" });
+const form = reactive({ name: "", email: "", message: "", website: "" });
 const loading = ref(false);
 const submitted = ref(false);
 const error = ref<string | null>(null);
@@ -72,17 +80,13 @@ const handleSubmit = async () => {
   loading.value = true;
   error.value = null;
   try {
-    const db = getFirestore();
-    await addDoc(collection(db, "contacts"), {
-      ...form,
-      createdAt: serverTimestamp(),
-    });
+    await $fetch("/api/enquiry", { method: "POST", body: { type: "contact", ...form } });
     submitted.value = true;
     form.name = "";
     form.email = "";
     form.message = "";
-  } catch (err) {
-    error.value = "Something went wrong. Please try again.";
+  } catch (err: any) {
+    error.value = err?.data?.data?.message || "Something went wrong. Please try again.";
   } finally {
     loading.value = false;
   }

@@ -19,8 +19,16 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    // Server-only secrets (never sent to the browser). Set via NUXT_* env vars; see .env.example.
+    firebaseClientEmail: "",
+    firebasePrivateKey: "",
+    resendApiKey: "",
+    notifyEmail: "",
     public: {
       firebaseApiKey: process.env.FIREBASE_API_KEY,
+      // Firebase UID of the chef's account; the only account allowed into Back of House.
+      // Set NUXT_PUBLIC_CHEF_UID in .env (local) and in Netlify's environment variables.
+      chefUid: "",
     },
   },
 
