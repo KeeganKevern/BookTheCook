@@ -1,7 +1,9 @@
 <template>
   <header class="fixed top-8 z-10 w-11/12 mx-auto">
     <div class="flex p-4 justify-between items-center rounded bg-white dark:bg-black text-black dark:text-white border border-gray-200 dark:border-gray-800">
-      <!-- Chef menu: only shown when signed in. Customers have no accounts. -->
+      <!-- Chef menu: only shown when signed in. Customers have no accounts.
+           Login state only exists in the browser, so this renders client-side only. -->
+      <ClientOnly>
       <div v-if="authStore.user" class="relative" ref="menuRef">
         <TheButton @click="menuOpen = !menuOpen" />
 
@@ -30,6 +32,8 @@
       </div>
       <!-- Keeps the title centred when the menu is hidden -->
       <div v-else class="w-6" aria-hidden="true"></div>
+        <template #fallback><div class="w-6" aria-hidden="true"></div></template>
+      </ClientOnly>
 
       <h1>{{ headerTitle }}</h1>
 
