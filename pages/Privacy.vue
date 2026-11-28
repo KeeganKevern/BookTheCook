@@ -3,7 +3,7 @@
 
     <section class="space-y-2">
       <h2 class="text-2xl font-bold text-black dark:text-white">Privacy notice</h2>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Last updated <time datetime="2026-11-26">26 November 2026</time></p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Last updated <time datetime="2026-11-28">28 November 2026</time></p>
       <p>
         This notice explains what happens to the details you give us when you send a booking request
         or a message through this website.
@@ -98,9 +98,10 @@
     <section class="space-y-2">
       <h3 :class="h3">Cookies</h3>
       <p>
-        This website doesn't use analytics, advertising or tracking cookies. Your browser remembers whether
-        you chose light or dark mode, and that setting stays on your device. The chef's login uses your
-        browser's storage only when the chef signs in.
+        This website doesn't use analytics, advertising or tracking cookies. If you switch between light and
+        dark mode, a small cookie called "colorMode" remembers your choice for a year, so pages load in the
+        mode you picked. It holds only "light" or "dark" and isn't used for anything else. The chef's login
+        uses your browser's storage only when the chef signs in.
       </p>
     </section>
 

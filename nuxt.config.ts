@@ -13,6 +13,13 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
   ],
 
+  // Chef-only pages depend on Firebase login, which only exists in the browser.
+  // Rendering them there avoids hydration mismatches; they don't need SEO.
+  routeRules: {
+    "/BackOfHouse": { ssr: false },
+    "/UserProfile": { ssr: false },
+  },
+
   tailwindcss: {
     exposeConfig: true,
     viewer: true,
